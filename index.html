@@ -20,10 +20,14 @@
 </head>
 <body>
 
+    <audio id="musica" loop>
+        <source src="https://docs.google.com/uc?export=download&id=1rgdDAo9gp0cgRmL5XFDwq63wtVjrhvq6" type="audio/mpeg">
+    </audio>
+
     <div class="card-container">
         <div id="p1">
             <h2>¡Hola! Introduce tu nombre ❤️</h2>
-            <input type="text" id="nameInp" placeholder="Escribe tu nombre...">
+            <input type="text" id="nameInp" placeholder="Tu nombre aquí...">
             <button class="btn-main" onclick="step1()">Ingresar</button>
         </div>
 
@@ -52,7 +56,7 @@
         <div id="p5" class="hidden">
             <h2>¡Lo lograste! 🏆</h2>
             <p>Toca el sobre para abrir tu carta:</p>
-            <div class="envelope" onclick="next(5,6)">Abrir 💌</div>
+            <div class="envelope" onclick="next(5,6)">Abrir Carta 💌</div>
         </div>
 
         <div id="p6" class="hidden">
@@ -76,12 +80,19 @@
     <script>
         function step1() {
             let n = document.getElementById('nameInp').value.toLowerCase();
-            if(n.includes('luna') || n.includes('lulu')) { next(1,2); } 
+            if(n.includes('luna') || n.includes('lulu')) { 
+                var audio = document.getElementById('musica');
+                audio.play().catch(function(error) {
+                    console.log("El audio necesita interacción.");
+                });
+                next(1,2); 
+            } 
             else { alert("Solo el amor de mi vida puede entrar aquí. 😏"); }
         }
         function next(hide, show) {
             document.getElementById('p'+hide).classList.add('hidden');
             document.getElementById('p'+show).classList.remove('hidden');
+            window.scrollTo(0,0);
         }
     </script>
 </body>
