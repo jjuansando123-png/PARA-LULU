@@ -3,122 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para Mi Persona Favorita ❤️</title>
+    <title>Para Mi Amor ❤️</title>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
-        body { background: linear-gradient(135deg, #ffe5ec, #ffc2d1); min-height: 100vh; display: flex; justify-content: center; align-items: center; overflow-x: hidden; }
-        .card-container { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: center; max-width: 400px; width: 90%; position: relative; }
-        h2 { color: #ff4d6d; margin-bottom: 20px; font-size: 24px; }
-        p { color: #4a4a4a; font-size: 16px; line-height: 1.5; margin-bottom: 20px; }
-        input[type="text"] { width: 100%; padding: 12px; border: 2px solid #ffb3c1; border-radius: 10px; margin-bottom: 20px; text-align: center; font-size: 16px; outline: none; }
-        .btn-opt { background: #cae9ff; color: #4a4a4a; border: none; padding: 12px 25px; font-size: 16px; border-radius: 10px; cursor: pointer; margin: 8px auto; width: 90%; display: block; }
-        .btn-main { background: #ff4d6d; color: white; border: none; padding: 12px 25px; font-size: 16px; border-radius: 10px; cursor: pointer; font-weight: bold; box-shadow: 0 5px 15px rgba(255, 77, 109, 0.3); width: 90%; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; }
+        body { background: linear-gradient(135deg, #ffe5ec, #ffc2d1); min-height: 100vh; display: flex; justify-content: center; align-items: center; }
+        .card-container { background: white; padding: 25px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: center; max-width: 380px; width: 90%; }
+        h2 { color: #ff4d6d; margin-bottom: 15px; font-size: 22px; }
+        p { color: #4a4a4a; font-size: 16px; line-height: 1.5; margin-bottom: 15px; }
+        input { width: 100%; padding: 12px; border: 2px solid #ffb3c1; border-radius: 10px; margin-bottom: 15px; text-align: center; }
+        .btn-opt { background: #cae9ff; color: #4a4a4a; border: none; padding: 12px; border-radius: 10px; margin: 8px auto; width: 90%; display: block; font-size: 16px; }
+        .btn-main { background: #ff4d6d; color: white; border: none; padding: 12px; border-radius: 10px; font-weight: bold; width: 90%; font-size: 16px; }
         .hidden { display: none !important; }
-        .envelope-wrapper { cursor: pointer; margin: 40px auto; width: 150px; height: 100px; background: #ff758f; position: relative; border-radius: 0 0 6px 6px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
-        .envelope-wrapper::before { content: ''; position: absolute; top: 0; width: 0; height: 0; border-left: 75px solid transparent; border-right: 75px solid transparent; border-top: 60px solid #ff4d6d; transform-origin: top; transition: transform 0.4s ease; z-index: 3; }
-        .opened.envelope-wrapper::before { transform: rotateX(180deg); z-index: 1; }
-        .letter { position: absolute; bottom: 0; left: 5px; width: 140px; height: 85px; background: white; border-radius: 4px; transition: transform 0.4s ease; z-index: 2; display: flex; justify-content: center; align-items: center; color: #ff4d6d; font-weight: bold; }
-        .opened .letter { transform: translateY(-40px); }
-        .final-text { font-style: italic; font-size: 18px; color: #c9184a; white-space: pre-line; line-height: 1.8; text-align: left; }
+        .envelope { cursor: pointer; margin: 20px auto; width: 120px; height: 80px; background: #ff758f; position: relative; border-radius: 0 0 6px 6px; display: flex; justify-content: center; align-items: center; color: white; font-weight: bold; }
+        .final-text { font-style: italic; font-size: 17px; color: #c9184a; line-height: 1.6; text-align: left; }
     </style>
 </head>
 <body>
 
-    <div class="card-container" id="game-card">
-        <!-- Paso 1: Nombre -->
-        <div id="step-name">
+    <div class="card-container">
+        <!-- 1. Nombre -->
+        <div id="p1">
             <h2>¡Hola! Introduce tu nombre ❤️</h2>
-            <input type="text" id="input-name" placeholder="Escribe tu nombre aquí...">
-            <button class="btn-main" onclick="checkName()">Ingresar</button>
+            <input type="text" id="nameInp" placeholder="Tu nombre...">
+            <button class="btn-main" onclick="step1()">Ingresar</button>
         </div>
 
-        <!-- Paso 2: Pregunta 1 -->
-        <div id="step-q1" class="hidden">
+        <!-- 2. App -->
+        <div id="p2" class="hidden">
             <h2>Pregunta 1 🤔</h2>
             <p>¿Por qué app nos conocimos?</p>
-            <button class="btn-opt" onclick="checkQ1('instagram')">Instagram</button>
-            <button class="btn-opt" onclick="checkQ1('tiktok')">TikTok</button>
-            <button class="btn-opt" onclick="checkQ1('facebook')">Facebook</button>
+            <button class="btn-opt" onclick="alert('¡Nopo! Esa no fue. 👀')">Instagram</button>
+            <button class="btn-opt" onclick="next(2,3)">TikTok</button>
+            <button class="btn-opt" onclick="alert('¡Nopo! Esa no fue. 👀')">Facebook</button>
         </div>
 
-        <!-- Paso 3: Pregunta 2 -->
-        <div id="step-q2" class="hidden">
+        <!-- 3. Meses -->
+        <div id="p3" class="hidden">
             <h2>Pregunta 2 📅</h2>
             <p>¿Cuántos meses tenemos ya juntos?</p>
-            <button class="btn-opt" onclick="checkQ2('3')">3 meses</button>
-            <button class="btn-opt" onclick="checkQ2('5')">5 meses</button>
-            <button class="btn-opt" onclick="checkQ2('4')">4 meses</button>
+            <button class="btn-opt" onclick="alert('¿Cómo así? ¡Saca bien las cuentas! 😂')">3 meses</button>
+            <button class="btn-opt" onclick="alert('¿Cómo así? ¡Saca bien las cuentas! 😂')">5 meses</button>
+            <button class="btn-opt" onclick="next(3,4)">4 meses</button>
         </div>
 
-        <!-- Paso 4: Pregunta 3 (Solo el botón SÍ) -->
-        <div id="step-q3" class="hidden">
+        <!-- 4. Amor -->
+        <div id="p4" class="hidden">
             <h2>Pregunta 3 🥺</h2>
             <p>¿Me amas?</p>
-            <button class="btn-main" onclick="goToEnvelope()">¡SÍ, TE AMO!</button>
+            <button class="btn-main" onclick="next(4,5)">¡SÍ, TE AMO!</button>
         </div>
 
-        <!-- Paso 5: El Sobre -->
-        <div id="step-envelope" class="hidden">
+        <!-- 5. Sobre -->
+        <div id="p5" class="hidden">
             <h2>¡Pasaste la prueba! 🏆</h2>
-            <p>Tienes un mensaje importante esperando por ti. Toca el sobre para abrirlo:</p>
-            <div class="envelope-wrapper" id="envelope" onclick="openLetter()">
-                <div class="letter">Abrir 💌</div>
-            </div>
+            <p>Toca el sobre para leer tu carta:</p>
+            <div class="envelope" onclick="next(5,6)">Abrir 💌</div>
         </div>
 
-        <!-- Paso 6: La Carta Final -->
-        <div id="step-letter" class="hidden">
-            <h2>Para: Luna ladeux (LULU) 📝</h2>
+        <!-- 6. Carta -->
+        <div id="p6" class="hidden">
+            <h2>Para: Lulu ❤️</h2>
             <p class="final-text">
                 Amado, LAS COSAS PASAN POR ALGO, palabra que siempre dice usted jaja y si esa frase tiene mucho sentido al ver cómo nos conocimos, te amo con mi vida Luna ladeux (LULU).
-
+                <br><br>
                 Ahora quiero que termines acá y me llames, necesito decirte algo, te amo.
             </p>
         </div>
     </div>
 
     <script>
-        function checkName() {
-            const name = document.getElementById('input-name').value.trim().toLowerCase();
-            if (name.includes('luna') || name.includes('lulu') || name.includes('lúlu')) {
-                document.getElementById('step-name').classList.add('hidden');
-                document.getElementById('step-q1').classList.remove('hidden');
-            } else if (name === "") {
-                alert("Por favor, pon tu nombre real.");
-            } else {
-                alert("Mmm... Esta página web está reservada para el amor de mi vida. 😏");
-            }
+        function step1() {
+            let n = document.getElementById('nameInp').value.toLowerCase();
+            if(n.includes('luna') || n.includes('lulu')) { next(1,2); } 
+            else { alert("Esta página es solo para el amor de mi vida. 😏"); }
         }
-
-        function checkQ1(option) {
-            if (option === 'tiktok') {
-                document.getElementById('step-q1').classList.add('hidden');
-                document.getElementById('step-q2').classList.remove('hidden');
-            } else {
-                alert("¡Nopo! Esa no fue la app. 👀");
-            }
-        }
-
-        function checkQ2(option) {
-            if (option === '4') {
-                document.getElementById('step-q2').classList.add('hidden');
-                document.getElementById('step-q3').classList.remove('hidden');
-            } else {
-                alert("¿Cómo así? ¡Saca bien las cuentas! 😂");
-            }
-        }
-
-        function goToEnvelope() {
-            document.getElementById('step-q3').classList.add('hidden');
-            document.getElementById('step-envelope').classList.remove('hidden');
-        }
-
-        function openLetter() {
-            document.getElementById('envelope').classList.add('opened');
-            setTimeout(() => {
-                document.getElementById('step-envelope').classList.add('hidden');
-                document.getElementById('step-letter').classList.remove('hidden');
-            }, 1200);
+        function next(hide, show) {
+            document.getElementById('p'+hide).classList.add('hidden');
+            document.getElementById('p'+show).classList.remove('hidden');
         }
     </script>
 </body>
