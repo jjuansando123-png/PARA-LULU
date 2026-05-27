@@ -20,8 +20,8 @@
 </head>
 <body>
 
-    <audio id="musica" loop>
-        <source src="https://docs.google.com/uc?export=download&id=1rgdDAo9gp0cgRmL5XFDwq63wtVjrhvq6" type="audio/mpeg">
+    <audio id="musica" preload="auto" loop>
+        <source src="https://docs.google.com/uc?export=open&id=1rgdDAo9gp0cgRmL5XFDwq63wtVjrhvq6" type="audio/mpeg">
     </audio>
 
     <div class="card-container">
@@ -82,9 +82,7 @@
             let n = document.getElementById('nameInp').value.toLowerCase();
             if(n.includes('luna') || n.includes('lulu')) { 
                 var audio = document.getElementById('musica');
-                audio.play().catch(function(error) {
-                    console.log("El audio necesita interacción.");
-                });
+                audio.play();
                 next(1,2); 
             } 
             else { alert("Solo el amor de mi vida puede entrar aquí. 😏"); }
