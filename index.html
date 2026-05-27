@@ -3,71 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para Mi Amor ❤️</title>
+    <title>Para Mi Persona Favorita ❤️</title>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; }
-        body { background: linear-gradient(135deg, #ffe5ec, #ffc2d1); min-height: 100vh; display: flex; justify-content: center; align-items: center; }
-        .card-container { background: white; padding: 25px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: center; max-width: 380px; width: 90%; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
+        body { background: linear-gradient(135deg, #ffe5ec, #ffc2d1); min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 10px; }
+        .card-container { background: white; padding: 25px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: center; max-width: 380px; width: 100%; }
         h2 { color: #ff4d6d; margin-bottom: 15px; font-size: 22px; }
         p { color: #4a4a4a; font-size: 16px; line-height: 1.5; margin-bottom: 15px; }
-        input { width: 100%; padding: 12px; border: 2px solid #ffb3c1; border-radius: 10px; margin-bottom: 15px; text-align: center; }
-        .btn-opt { background: #cae9ff; color: #4a4a4a; border: none; padding: 12px; border-radius: 10px; margin: 8px auto; width: 90%; display: block; font-size: 16px; }
-        .btn-main { background: #ff4d6d; color: white; border: none; padding: 12px; border-radius: 10px; font-weight: bold; width: 90%; font-size: 16px; }
+        input { width: 100%; padding: 12px; border: 2px solid #ffb3c1; border-radius: 10px; margin-bottom: 15px; text-align: center; font-size: 16px; }
+        .btn-opt { background: #cae9ff; color: #4a4a4a; border: none; padding: 12px; border-radius: 10px; margin: 8px auto; width: 95%; display: block; font-size: 16px; font-weight: 500; }
+        .btn-main { background: #ff4d6d; color: white; border: none; padding: 14px; border-radius: 10px; font-weight: bold; width: 95%; font-size: 16px; cursor: pointer; }
         .hidden { display: none !important; }
-        .envelope { cursor: pointer; margin: 20px auto; width: 120px; height: 80px; background: #ff758f; position: relative; border-radius: 0 0 6px 6px; display: flex; justify-content: center; align-items: center; color: white; font-weight: bold; }
-        .final-text { font-style: italic; font-size: 17px; color: #c9184a; line-height: 1.6; text-align: left; }
+        .envelope { cursor: pointer; margin: 20px auto; width: 130px; height: 90px; background: #ff758f; border-radius: 0 0 6px 6px; display: flex; justify-content: center; align-items: center; color: white; font-weight: bold; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .final-text { font-size: 17px; color: #4a4a4a; line-height: 1.6; text-align: left; white-space: pre-line; }
+        .signature { color: #ff4d6d; font-weight: bold; margin-top: 15px; display: block; text-align: center; }
     </style>
 </head>
 <body>
 
     <div class="card-container">
-        <!-- 1. Nombre -->
         <div id="p1">
             <h2>¡Hola! Introduce tu nombre ❤️</h2>
-            <input type="text" id="nameInp" placeholder="Tu nombre...">
+            <input type="text" id="nameInp" placeholder="Tu nombre aquí...">
             <button class="btn-main" onclick="step1()">Ingresar</button>
         </div>
 
-        <!-- 2. App -->
         <div id="p2" class="hidden">
             <h2>Pregunta 1 🤔</h2>
             <p>¿Por qué app nos conocimos?</p>
-            <button class="btn-opt" onclick="alert('¡Nopo! Esa no fue. 👀')">Instagram</button>
+            <button class="btn-opt" onclick="alert('¡Nopo! Casi, pero no. 👀')">Instagram</button>
             <button class="btn-opt" onclick="next(2,3)">TikTok</button>
-            <button class="btn-opt" onclick="alert('¡Nopo! Esa no fue. 👀')">Facebook</button>
+            <button class="btn-opt" onclick="alert('¡Esa menos! Jajaja 👀')">Facebook</button>
         </div>
 
-        <!-- 3. Meses -->
         <div id="p3" class="hidden">
             <h2>Pregunta 2 📅</h2>
             <p>¿Cuántos meses tenemos ya juntos?</p>
-            <button class="btn-opt" onclick="alert('¿Cómo así? ¡Saca bien las cuentas! 😂')">3 meses</button>
-            <button class="btn-opt" onclick="alert('¿Cómo así? ¡Saca bien las cuentas! 😂')">5 meses</button>
+            <button class="btn-opt" onclick="alert('¡Nooo! Saca bien las cuentas. 😂')">3 meses</button>
+            <button class="btn-opt" onclick="alert('Todavía no llegamos allá. 😂')">5 meses</button>
             <button class="btn-opt" onclick="next(3,4)">4 meses</button>
         </div>
 
-        <!-- 4. Amor -->
         <div id="p4" class="hidden">
             <h2>Pregunta 3 🥺</h2>
-            <p>¿Me amas?</p>
-            <button class="btn-main" onclick="next(4,5)">¡SÍ, TE AMO!</button>
+            <p>¿Me amas con todo tu corazón?</p>
+            <button class="btn-main" onclick="next(4,5)">¡SÍ, TE AMO MUCHO!</button>
         </div>
 
-        <!-- 5. Sobre -->
         <div id="p5" class="hidden">
             <h2>¡Pasaste la prueba! 🏆</h2>
-            <p>Toca el sobre para leer tu carta:</p>
-            <div class="envelope" onclick="next(5,6)">Abrir 💌</div>
+            <p>Toca el sobre para leer lo que te escribí:</p>
+            <div class="envelope" onclick="next(5,6)">Abrir Carta 💌</div>
         </div>
 
-        <!-- 6. Carta -->
         <div id="p6" class="hidden">
-            <h2>Para: Lulu ❤️</h2>
-            <p class="final-text">
-                Amado, LAS COSAS PASAN POR ALGO, palabra que siempre dice usted jaja y si esa frase tiene mucho sentido al ver cómo nos conocimos, te amo con mi vida Luna ladeux (LULU).
-                <br><br>
-                Ahora quiero que termines acá y me llames, necesito decirte algo, te amo.
-            </p>
+            <h2>Para: Doña Lulu 📝</h2>
+            <div class="final-text">
+                Hola doña Lulu, me puse de creativo y ps no soy muy bueno haciendo estas cosas pero cualquier esfuerzo vale la pena si es para ti.
+                
+                Quiero decirte que te amo, que eres mi persona favorita, que eres la bendición más grande que ha llegado a mi vida. Eres una persona que cada día me enseña y que me alegra cada día. 
+                
+                Te quiero dar las gracias por todo lo que has hecho por mi, por amarme, por siempre estar para mi. Gracias por enseñarme a saber que se siente ser amado en verdad y gracias por hacer que cada día más quiera salir adelante. 
+                
+                Te amo con todo mi corazón y ahora que termines de leer, quiero que cierres y me llames.
+            </div>
+            <span class="signature">Te amo hoy y siempre ❤️</span>
         </div>
     </div>
 
@@ -75,11 +75,12 @@
         function step1() {
             let n = document.getElementById('nameInp').value.toLowerCase();
             if(n.includes('luna') || n.includes('lulu')) { next(1,2); } 
-            else { alert("Esta página es solo para el amor de mi vida. 😏"); }
+            else { alert("Mmm... Esta página es solo para el amor de mi vida. Inténtalo de nuevo. 😏"); }
         }
         function next(hide, show) {
             document.getElementById('p'+hide).classList.add('hidden');
             document.getElementById('p'+show).classList.remove('hidden');
+            window.scrollTo(0,0);
         }
     </script>
 </body>
