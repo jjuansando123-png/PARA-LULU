@@ -10,13 +10,12 @@
         .card-container { background: white; padding: 25px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: center; max-width: 400px; width: 100%; }
         h2 { color: #ff4d6d; margin-bottom: 15px; font-size: 22px; }
         p { color: #4a4a4a; font-size: 16px; line-height: 1.5; margin-bottom: 15px; }
-        input { width: 100%; padding: 12px; border: 2px solid #ffb3c1; border-radius: 10px; margin-bottom: 15px; text-align: center; font-size: 16px; }
-        .btn-opt { background: #cae9ff; color: #4a4a4a; border: none; padding: 12px; border-radius: 10px; margin: 8px auto; width: 95%; display: block; font-size: 16px; font-weight: 500; }
+        input { width: 100%; padding: 12px; border: 2px solid #ffb3c1; border-radius: 10px; margin-bottom: 15px; text-align: center; font-size: 16px; outline: none; }
+        .btn-opt { background: #cae9ff; color: #4a4a4a; border: none; padding: 12px; border-radius: 10px; margin: 8px auto; width: 95%; display: block; font-size: 16px; cursor: pointer; }
         .btn-main { background: #ff4d6d; color: white; border: none; padding: 14px; border-radius: 10px; font-weight: bold; width: 95%; font-size: 16px; cursor: pointer; }
         .hidden { display: none !important; }
         .envelope { cursor: pointer; margin: 20px auto; width: 130px; height: 90px; background: #ff758f; border-radius: 0 0 6px 6px; display: flex; justify-content: center; align-items: center; color: white; font-weight: bold; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
         .final-text { font-size: 17px; color: #4a4a4a; line-height: 1.6; text-align: left; white-space: pre-line; }
-        .signature { color: #ff4d6d; font-weight: bold; margin-top: 20px; display: block; text-align: center; font-size: 18px; }
     </style>
 </head>
 <body>
@@ -24,23 +23,23 @@
     <div class="card-container">
         <div id="p1">
             <h2>¡Hola! Introduce tu nombre ❤️</h2>
-            <input type="text" id="nameInp" placeholder="Tu nombre aquí...">
+            <input type="text" id="nameInp" placeholder="Escribe tu nombre...">
             <button class="btn-main" onclick="step1()">Ingresar</button>
         </div>
 
         <div id="p2" class="hidden">
             <h2>Pregunta 1 🤔</h2>
             <p>¿Por qué app nos conocimos?</p>
-            <button class="btn-opt" onclick="alert('¡Nopo! Casi, pero no. 👀')">Instagram</button>
+            <button class="btn-opt" onclick="alert('¡No! Intenta otra vez. 👀')">Instagram</button>
             <button class="btn-opt" onclick="next(2,3)">TikTok</button>
-            <button class="btn-opt" onclick="alert('¡Esa menos! Jajaja 👀')">Facebook</button>
+            <button class="btn-opt" onclick="alert('¡Nopo! 👀')">Facebook</button>
         </div>
 
         <div id="p3" class="hidden">
             <h2>Pregunta 2 📅</h2>
-            <p>¿Cuántos meses tenemos ya juntos?</p>
-            <button class="btn-opt" onclick="alert('¡Nooo! Saca bien las cuentas. 😂')">3 meses</button>
-            <button class="btn-opt" onclick="alert('Todavía no llegamos allá. 😂')">5 meses</button>
+            <p>¿Cuántos meses tenemos juntos?</p>
+            <button class="btn-opt" onclick="alert('¡Frío, frío! 😂')">3 meses</button>
+            <button class="btn-opt" onclick="alert('¡Te pasaste! 😂')">5 meses</button>
             <button class="btn-opt" onclick="next(3,4)">4 meses</button>
         </div>
 
@@ -51,9 +50,9 @@
         </div>
 
         <div id="p5" class="hidden">
-            <h2>¡Pasaste la prueba! 🏆</h2>
-            <p>Toca el sobre para leer tu carta:</p>
-            <div class="envelope" onclick="next(5,6)">Abrir Carta 💌</div>
+            <h2>¡Lo lograste! 🏆</h2>
+            <p>Toca el sobre para abrir tu carta:</p>
+            <div class="envelope" onclick="next(5,6)">Abrir 💌</div>
         </div>
 
         <div id="p6" class="hidden">
@@ -71,7 +70,6 @@
 
                 Ahora, cuando termines de leer esto, cierra el mensaje y llámame. ❤️
             </div>
-            <span class="signature">Te amo hoy y siempre</span>
         </div>
     </div>
 
@@ -79,12 +77,11 @@
         function step1() {
             let n = document.getElementById('nameInp').value.toLowerCase();
             if(n.includes('luna') || n.includes('lulu')) { next(1,2); } 
-            else { alert("Mmm... Esta página es solo para el amor de mi vida. Inténtalo de nuevo. 😏"); }
+            else { alert("Solo el amor de mi vida puede entrar aquí. 😏"); }
         }
         function next(hide, show) {
             document.getElementById('p'+hide).classList.add('hidden');
             document.getElementById('p'+show).classList.remove('hidden');
-            window.scrollTo(0,0);
         }
     </script>
 </body>
